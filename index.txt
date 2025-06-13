@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🚨 Diagnostic Alternance Aéro</title>
+    <style>
+        body { 
+            font-family: monospace; 
+            background: black; 
+            color: lime; 
+            margin: 0; 
+            padding: 20px;
+        }
+        #console { margin: 30px auto; max-width: 600px; }
+        .log { margin: 10px 0; }
+        button { 
+            background: red; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="console">
+        <div class="log">> SYSTÈME ALTERNANCE PRÊT</div>
+        <button onclick="startScan()">LANCER LE SCAN</button>
+    </div>
+
+    <script>
+        function startScan() {
+            const logs = [
+                "> Scan compétences embarqués...",
+                "> Trouvé : C++ (DWFRITZ - Contrôle PID)",
+                "> Trouvé : Rust (ACMG - Qualité eau)",
+                "> ALERTE : Besoin alternance détecté !",
+                "> SOLUTION : Junior MBA - 06 50 58 14 27"
+            ];
+            
+            const consoleElem = document.getElementById('console');
+            logs.forEach((log, i) => {
+                setTimeout(() => {
+                    const elem = document.createElement('div');
+                    elem.className = 'log';
+                    elem.textContent = log;
+                    consoleElem.appendChild(elem);
+                }, i * 800);
+            });
+        }
+    </script>
+</body>
+</html>
